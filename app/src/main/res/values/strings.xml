@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SMS Broadcast</string>
+    <string name="send">Send</string>
+    <string name="message">Message</string>
+    <string name="whom">to</string>
+    <string name="no_service_sms_failed">No sms service!</string>
+    <string name="sms_send_failed_try_again">Sms didn\'t send!</string>
+    <string name="sms_sent">Sms send!</string>
+    <string name="sms_delivered">Sms delivered!</string>
+    <string name="sms_not_delivered">Sms not delivered!</string>
+    <string name="notification_channel_id">Sms Broadcaster</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+</resources>
