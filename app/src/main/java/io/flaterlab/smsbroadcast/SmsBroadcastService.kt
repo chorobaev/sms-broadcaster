@@ -47,7 +47,6 @@ class SmsBroadcastService : Service() {
 
     private val sentBroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
-            val uid = intent?.getStringExtra(MESSAGE_UID) ?: return
             when (resultCode) {
                 AppCompatActivity.RESULT_OK -> {
                     // sms_sent
@@ -70,7 +69,8 @@ class SmsBroadcastService : Service() {
 
     private val deliveryBroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
-            val uid = intent?.getStringExtra(MESSAGE_UID) ?: return
+            val uid = intent?.getIntExtra(MESSAGE_UID, -1) ?: return
+            if (uid == -1) return
             when (resultCode) {
                 AppCompatActivity.RESULT_OK -> repository.sendResult(
                     SmsResult(uid, SmsResult.Status.DELIVERED)
@@ -130,7 +130,7 @@ class SmsBroadcastService : Service() {
         coroutineScope?.launch {
             repository.message()
                 .consumeEach { smsMessage ->
-                    val uid = smsMessage.data?.uid
+                    val uid = smsMessage.data?.sms_id
                     val phone = smsMessage.data?.number
                     val message = smsMessage.data?.text
                     if (phone != null && message != null && uid != null) {

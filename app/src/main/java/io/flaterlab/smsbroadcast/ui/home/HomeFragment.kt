@@ -1,7 +1,6 @@
 package io.flaterlab.smsbroadcast.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,7 +38,6 @@ class HomeFragment : Fragment() {
                     else -> R.string.start
                 }
             )
-            Log.d("Mylog", "Status: $status")
             if (status == ServiceStatus.ON) {
                 SmsBroadcastService.start(requireActivity())
             }

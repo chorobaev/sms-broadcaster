@@ -1,7 +1,7 @@
 package io.flaterlab.smsbroadcast.data
 
 data class SmsResult(
-    val uid: String,
+    val uid: Int,
     val status: Status
 ) {
 

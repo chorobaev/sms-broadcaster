@@ -6,7 +6,7 @@ data class SmsMessage(
 )
 
 data class Sms(
-    val uid: String?,
+    val sms_id: Int,
     val number: String?,
     val text: String?
 )
